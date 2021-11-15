@@ -83,6 +83,7 @@ namespace WF_Picross
 			this.ClientSize = new System.Drawing.Size(1184, 911);
 			this.Controls.Add(this.groupBox1);
 			this.Controls.Add(this.puzzle1);
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
 			this.Name = "frmMain";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Nonograme - Picross Solver";
