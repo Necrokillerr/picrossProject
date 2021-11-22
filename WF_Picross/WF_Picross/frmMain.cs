@@ -15,6 +15,7 @@ namespace WF_Picross
 		public frmMain()
 		{
 			InitializeComponent();
+			Puzzle picross = new Puzzle(10, 10);
 		}
 	}
 }
