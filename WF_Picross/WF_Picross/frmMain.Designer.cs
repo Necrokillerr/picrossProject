@@ -54,6 +54,7 @@ namespace WF_Picross
             this.btnAutoSolve.TabIndex = 2;
             this.btnAutoSolve.Text = "Auto solve";
             this.btnAutoSolve.UseVisualStyleBackColor = true;
+            this.btnAutoSolve.Click += new System.EventHandler(this.btnAutoSolve_Click);
             // 
             // groupBox1
             // 

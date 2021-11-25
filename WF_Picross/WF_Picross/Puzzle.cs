@@ -9,7 +9,9 @@ namespace WF_Picross
 	class Puzzle : PictureBox
 	{
 		Size sizeGrid;
-		List<Cell> cells;
+		public List<Cell> cells;
+		public string[] collumns = { "3", "2,1", "4", "2, 2", "0" };
+		public string[] rows = { "1", "1", "1", "3", "0" };
 
 		public Puzzle() : this(5, 5)
 		{
@@ -31,13 +33,13 @@ namespace WF_Picross
 		// Met une croix
 		public void PutX()
 		{
-			// Si la case est incorrect, Mettre une croix
+
 		}
 
 		// Remplis la case
 		public void PutColor()
 		{
-			// Si la case est correct, Mettre la couleur
+
 		}
 
 		// Met une croix aux deux extrémités d'un segment
@@ -73,21 +75,19 @@ namespace WF_Picross
 			
 			for (int i = 0; i < sizeGrid.Height; i++)
 			{
-				pe.Graphics.DrawString("0", new Font(FontFamily.GenericSansSerif, 16, FontStyle.Bold), Brushes.Black, new PointF(0, y+32));
+				pe.Graphics.DrawString(rows[i], new Font(FontFamily.GenericSansSerif, 16, FontStyle.Bold), Brushes.Black, new PointF(0, y+32));
 				pe.Graphics.DrawRectangle(Pens.Blue, new Rectangle(new Point(0, y+size), new Size(60, 30)));
 
 				y += size;
 				x = 60;
 				for(int j = 0; j < sizeGrid.Width; j++)
 				{
-					pe.Graphics.DrawString("0", new Font(FontFamily.GenericSansSerif, 16, FontStyle.Bold), Brushes.Black, new PointF(x, 0), new StringFormat(StringFormatFlags.DirectionVertical));
+					pe.Graphics.DrawString(collumns[j], new Font(FontFamily.GenericSansSerif, 16, FontStyle.Bold), Brushes.Black, new PointF(x, 0), new StringFormat(StringFormatFlags.DirectionVertical));
 					pe.Graphics.DrawRectangle(Pens.Blue, new Rectangle(new Point(x, 0), new Size(30, 50)));
 					cells.Add(new Cell(new Point(x, y), new Size(size, size)));
-					//pe.Graphics.DrawRectangle(Pens.Black, new Rectangle(new Point(x, y), new Size(size, size)));
 					x += size;
 				}
 			}
-
 			foreach (Cell cell in cells)
             {
 				cell.Paint(pe.Graphics);
