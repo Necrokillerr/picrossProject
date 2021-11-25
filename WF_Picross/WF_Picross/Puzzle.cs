@@ -9,6 +9,7 @@ namespace WF_Picross
 	class Puzzle : PictureBox
 	{
 		Size sizeGrid;
+		List<Cell> cells;
 
 		public Puzzle() : this(5, 5)
 		{
@@ -23,7 +24,8 @@ namespace WF_Picross
 		public Puzzle(Size size)
 		{
 			sizeGrid = size;
-		}		
+			cells = new List<Cell>();
+		}
 
 		// ================ Méthodes ================
 		// Met une croix
@@ -80,10 +82,16 @@ namespace WF_Picross
 				{
 					pe.Graphics.DrawString("0", new Font(FontFamily.GenericSansSerif, 16, FontStyle.Bold), Brushes.Black, new PointF(x, 0), new StringFormat(StringFormatFlags.DirectionVertical));
 					pe.Graphics.DrawRectangle(Pens.Blue, new Rectangle(new Point(x, 0), new Size(30, 50)));
-					pe.Graphics.DrawRectangle(Pens.Black, new Rectangle(new Point(x, y), new Size(size, size)));
+					cells.Add(new Cell(new Point(x, y), new Size(size, size)));
+					//pe.Graphics.DrawRectangle(Pens.Black, new Rectangle(new Point(x, y), new Size(size, size)));
 					x += size;
 				}
 			}
+
+			foreach (Cell cell in cells)
+            {
+				cell.Paint(pe.Graphics);
+            }
 		}
 	}
 }

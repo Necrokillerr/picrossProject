@@ -7,8 +7,8 @@ namespace WF_Picross
 {
 	class Cell
 	{
-		PointF _location;   // Position
-		SizeF _size;		// Taille
+		Point _location;   // Position
+		Size _size;		// Taille
 
 		int empty;			// Cellule vide
 		int cross;			// Cellule contenant une croix
@@ -16,16 +16,16 @@ namespace WF_Picross
 
 		
 		// Propriétés
-		public PointF Location { get => _location; set => _location = value; }
-		public SizeF Size { get => _size; set => _size = value; }
+		public Point Location { get => _location; set => _location = value; }
+		public Size Size { get => _size; set => _size = value; }
 
 		// Constructeur
-		public Cell() :this(new PointF(60, 20), new SizeF(30, 30))
+		public Cell() :this(new Point(60, 50), new Size(30, 30))
 		{
 
 		}
 
-		public Cell(PointF location, SizeF size)
+		public Cell(Point location, Size size)
 		{
 			Location = location;
 			Size = size;
@@ -34,7 +34,7 @@ namespace WF_Picross
 		// Méthode
 		public void Paint(Graphics g)
 		{
-
+			g.DrawRectangle(Pens.Black, new Rectangle(Location, Size));
 		}
 	}
 }
