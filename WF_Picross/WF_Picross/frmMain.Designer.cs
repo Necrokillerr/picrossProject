@@ -32,9 +32,7 @@ namespace WF_Picross
             this.btnNextStep = new System.Windows.Forms.Button();
             this.btnAutoSolve = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.pbxPuzzle = new WF_Picross.Puzzle();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbxPuzzle)).BeginInit();
             this.SuspendLayout();
             // 
             // btnNextStep
@@ -68,27 +66,17 @@ namespace WF_Picross
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Résolution";
             // 
-            // pbxPuzzle
-            // 
-            this.pbxPuzzle.Location = new System.Drawing.Point(443, 176);
-            this.pbxPuzzle.Name = "pbxPuzzle";
-            this.pbxPuzzle.Size = new System.Drawing.Size(700, 700);
-            this.pbxPuzzle.TabIndex = 3;
-            this.pbxPuzzle.TabStop = false;
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 911);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.pbxPuzzle);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Nonograme - Picross Solver";
             this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pbxPuzzle)).EndInit();
             this.ResumeLayout(false);
 
 		}
@@ -97,7 +85,6 @@ namespace WF_Picross
 		private System.Windows.Forms.Button btnNextStep;
 		private System.Windows.Forms.Button btnAutoSolve;
 		private System.Windows.Forms.GroupBox groupBox1;
-        private Puzzle pbxPuzzle;
     }
 }
 

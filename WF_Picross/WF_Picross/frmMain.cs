@@ -15,8 +15,9 @@ namespace WF_Picross
 		public frmMain()
 		{
 			InitializeComponent();
-			Puzzle picross = new Puzzle(10, 10);
-			picross.Location = new Point(200, 200);
+			Puzzle picross = new Puzzle(5, 5);
+			picross.Location = new Point(450, 200);
+			picross.Size = new Size(700, 700);
 			this.Controls.Add(picross);
 		}
 	}
