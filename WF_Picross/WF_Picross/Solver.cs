@@ -14,8 +14,8 @@ namespace WF_Picross
 
         public void Solve()
         {
-            //PutCrossOnRowsAndCollumnsWithZero();
-            //PutColorOnRowsAndCollumnsWithMaxValue();
+            PutCrossOnRowsAndCollumnsWithZero();
+            PutColorOnRowsAndCollumnsWithMaxValue();
             PutColorOnCenteredCells();
         }
 
@@ -23,25 +23,25 @@ namespace WF_Picross
         public void PutCrossOnRowsAndCollumnsWithZero()
         {
             // Collumns
-            for (int i = 0; i < pCross.collumns.Length; i++)
+            for (int i = 0; i < pCross.Collumns.Length; i++)
             {
-                if (pCross.collumns[i] == "0")
+                if (pCross.Collumns[i] == "0")
                 {
-                    for (int j = 0; j < pCross.rows.Length; j++)
+                    for (int j = 0; j < pCross.Rows.Length; j++)
                     {
-                        pCross.cellList[i + pCross.rows.Length * j].state = State.cross;
+                        pCross.CellList[i + pCross.Rows.Length * j].State = State.cross;
                     }
                 }
             }
             
             // Rows
-            for (int i = 0; i < pCross.rows.Length; i++)
+            for (int i = 0; i < pCross.Rows.Length; i++)
             {
-                if (pCross.rows[i] == "0")
+                if (pCross.Rows[i] == "0")
                 {
-                    for (int j = 0; j < pCross.collumns.Length; j++)
+                    for (int j = 0; j < pCross.Collumns.Length; j++)
                     {
-                        pCross.cellList[j + pCross.collumns.Length * i].state = State.cross;
+                        pCross.CellList[j + pCross.Collumns.Length * i].State = State.cross;
                     }
                 }
             }
@@ -51,25 +51,25 @@ namespace WF_Picross
         public void PutColorOnRowsAndCollumnsWithMaxValue()
         {
             // Collumns
-            for (int i = 0; i < pCross.collumns.Length; i++)
+            for (int i = 0; i < pCross.Collumns.Length; i++)
             {
-                if (pCross.collumns[i] == pCross.collumns.Length.ToString())
+                if (pCross.Collumns[i] == pCross.Collumns.Length.ToString())
                 {
-                    for (int j = 0; j < pCross.rows.Length; j++)
+                    for (int j = 0; j < pCross.Rows.Length; j++)
                     {
-                        pCross.cellList[i + pCross.rows.Length * j].state = State.fill;
+                        pCross.CellList[i + pCross.Rows.Length * j].State = State.fill;
                     }
                 }
             }
 
             // Rows
-            for (int i = 0; i < pCross.rows.Length; i++)
+            for (int i = 0; i < pCross.Rows.Length; i++)
             {
-                if (pCross.rows[i] == pCross.rows.Length.ToString())
+                if (pCross.Rows[i] == pCross.Rows.Length.ToString())
                 {
-                    for (int j = 0; j < pCross.collumns.Length; j++)
+                    for (int j = 0; j < pCross.Collumns.Length; j++)
                     {
-                        pCross.cellList[j + pCross.collumns.Length * i].state = State.fill;
+                        pCross.CellList[j + pCross.Collumns.Length * i].State = State.fill;
                     }
                 }
             }
@@ -78,7 +78,7 @@ namespace WF_Picross
         // Remplis les cases restant allumé quand la valeur à été testé dans chaque emplacement
         public void PutColorOnCenteredCells()
         {
-
+            // Croquis papier
         }
     }
 }

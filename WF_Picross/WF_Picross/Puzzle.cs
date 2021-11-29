@@ -9,16 +9,20 @@ namespace WF_Picross
 	class Puzzle : PictureBox
 	{
 		Size sizeGrid;
-		public Cell[,] cells;
-		public List<Cell> cellList;
+        private List<Cell> _cellList;
 
-		public string[] collumns = { "1", "4", "5", "2", "2" };
-		public string[] rows = { "2", "3,1", "4", "3", "1" };
+        private string[] _collumns = { "1", "4", "5", "2", "2" };
+		private string[] _rows = { "2", "3,1", "4", "3", "1" };
 
-		//public string[] collumns = { "5", "2,1", "4", "2, 2", "0" };
-		//public string[] rows = { "1", "2", "1", "4", "1" };
+        // Array to test max and min value
+        //private string[] _collumns = { "5", "0", "5", "2", "0" };
+        //private string[] _rows = { "1", "2", "1", "1", "1" };
+		
+		public List<Cell> CellList { get => _cellList; set => _cellList = value; }
+        public string[] Collumns { get => _collumns; set => _collumns = value; }
+        public string[] Rows { get => _rows; set => _rows = value; }
 
-		public Puzzle() : this(5, 5)
+        public Puzzle() : this(5, 5)
 		{
 			
 		}
@@ -31,8 +35,7 @@ namespace WF_Picross
 		public Puzzle(Size size)
 		{
 			sizeGrid = size;
-			cells = new Cell[sizeGrid.Width, sizeGrid.Height];
-			cellList = new List<Cell>();
+			CellList = new List<Cell>();
 		}
 
 		protected override void OnPaint(PaintEventArgs pe)
@@ -44,26 +47,21 @@ namespace WF_Picross
 			
 			for (int i = 0; i < sizeGrid.Height; i++)
 			{
-				pe.Graphics.DrawString(rows[i], new Font(FontFamily.GenericSansSerif, 16, FontStyle.Bold), Brushes.Black, new PointF(0, y+32));
+				pe.Graphics.DrawString(Rows[i], new Font(FontFamily.GenericSansSerif, 16, FontStyle.Bold), Brushes.Black, new PointF(0, y+32));
 				pe.Graphics.DrawRectangle(Pens.Blue, new Rectangle(new Point(0, y+size), new Size(60, 30)));
 
 				y += size;
 				x = 60;
 				for(int j = 0; j < sizeGrid.Width; j++)
 				{
-					pe.Graphics.DrawString(collumns[j], new Font(FontFamily.GenericSansSerif, 16, FontStyle.Bold), Brushes.Black, new PointF(x, 0), new StringFormat(StringFormatFlags.DirectionVertical));
+					pe.Graphics.DrawString(Collumns[j], new Font(FontFamily.GenericSansSerif, 16, FontStyle.Bold), Brushes.Black, new PointF(x, 0), new StringFormat(StringFormatFlags.DirectionVertical));
 					pe.Graphics.DrawRectangle(Pens.Blue, new Rectangle(new Point(x, 0), new Size(30, 50)));
-					cells[i, j] = new Cell(new Point(x, y), new Size(size, size));
-					cellList.Add(new Cell(new Point(x, y), new Size(size, size)));
+					CellList.Add(new Cell(new Point(x, y), new Size(size, size)));
 					x += size;
 				}
 			}
-			/*foreach (Cell cell in cells)
-            {
-				cell.Paint(pe.Graphics);
-            }*/
 
-			foreach (Cell cell in cellList)
+			foreach (Cell cell in CellList)
 			{
 				cell.Paint(pe.Graphics);
 			}
